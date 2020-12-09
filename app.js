@@ -1,34 +1,40 @@
-console.log('app is running')
+let continents = []
 
-const continentData = $.get(
+$.get(
     "https://corona.lmao.ninja/v2/continents?yesterday=true&sort",
-     (data) => {
-        console.log(data);
-        for (let i=0; i<data.length; i++){
-            const name = data[i].continent
-            const continentName = `<span>${data[i].continent}</span>`
-            const continentNewCase = `<li>NewCase: ${data[i].todayCases}</li>`
-            const continentNewDeath = `<li>NewDeath: ${data[i].todayDeaths}</li>`
-            const continentNewRecovered = `<li>NewRecovered: ${data[i].todayRecovered}</li>`
-            const continentTested = `<li>Tested: ${data[i].testsPerOneMillion}</li>`
-            const continentDeathRatio = `<li>DeathPerMillion: ${data[i].deathsPerOneMillion}</li>`
-            const continentRecovered = `<li>RecoveredPerMillion: ${data[i].recoveredPerOneMillion}</li>`
-            
-            const continentDiv = $(`<div class="card"></div`)
-            const continentheader =$(`<div class="card-header">${name}</div>`)
-            const continentBody =$(`<div class="card-body"></div>`)
-            const continentInfo =$(`<div class="card-info"></div>`)
-           
-           
-            const classType = $(`<div class="col-md-4 col-sm-6 mb-4"></div>`)
-            continentBody.append(continentNewCase, continentNewDeath, continentNewRecovered, continentTested, continentDeathRatio, continentRecovered)
-            continentDiv.append(continentheader, continentBody, continentInfo)
-            classType.append(continentDiv)
-            $('#container').append(classType)
-        }
+    (data) => {
+        continents = data;
+        console.log(data)
+        data.forEach(appendCardtoContainer);  
     }
 )
 
+const appendCardtoContainer = (element) => {
+    let card = createCard(element);
+    const cardType = $(`<div class="col-md-4 col-sm-6 mb-4"></div>`)
+    cardType.append(card)
+    $('#container').append(cardType)
+}
+
+function createCard(element) {
+    const name = element.continent
+    const continentActiveCase =`<li>ActiveCases: ${element.active}</li>`
+    const continentNewCase = `<li>NewCases: ${element.todayCases}</li>`
+    const continentNewDeath = `<li>NewDeath: ${element.todayDeaths}</li>`
+    const continentNewRecovered = `<li>NewRecovered: ${element.todayRecovered}</li>`
+    const continentTested = `<li>Tested: ${element.testsPerOneMillion}</li>`
+    const continentDeathRatio = `<li>DeathPerMillion: ${element.deathsPerOneMillion}</li>`
+    const continentRecovered = `<li>RecoveredPerMillion: ${element.recoveredPerOneMillion}</li>`
+
+    const continentDiv = $(`<div class="card"></div`)
+    const continentheader =$(`<div class="card-header">${name}</div>`)
+    const continentBody =$(`<div class="card-body"></div>`)
+    const continentInfo =$(`<div class="card-info"></div>`)
+
+    continentBody.append(continentActiveCase, continentNewCase, continentNewDeath, continentNewRecovered, continentTested, continentDeathRatio, continentRecovered)
+    continentDiv.append(continentheader, continentBody, continentInfo)
+    return continentDiv
+}
 
 
 
