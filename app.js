@@ -23,14 +23,12 @@ function createCard(element) {
   const continentheader = $(`<div class="card-header">${name}</div>`);
   const continentBody = $(`<div class="card-body"></div>`);
   const continentInfo = $(`<div class="card-info"></div>`);
-  const showMoreButton = $(
-    `<button type="button" class="detailButton">Show More</button>`
-  );
+  const showMoreButton = $(`<button type="button" class="detailButton">Show More</button>`);
 
   //*! structure the dragdown list for country in side the function
   showMoreButton.click((event) => {
     let countryList = element.countries;
-    console.log(countryList);
+    // console.log(countryList);
     $("#container").hide();
     $("#container2").show();
     $('.cName').remove();
@@ -57,10 +55,7 @@ function createCard(element) {
 
 //*! below are country get request:
 
-$("#country").on("submit", (event) => {
-  event.preventDefault();
-  console.log("print");
- 
+$("#countries").on("change", (event) => {
   let countryData = $("#countries option:selected").val();
   $.get(
     `https://corona.lmao.ninja/v2/countries/${countryData}?yesterday=true&strict=true`,
@@ -102,7 +97,39 @@ function createCardforCountry(element) {
   return countryDiv;
 }
 
-$("#back").click((e) => {
+
+
+$('#home').click((event) => {
   $("#container").show();
   $("#container2").hide();
+})
+
+$(document).ajaxError(() => { alert('Something went wrong') });
+
+$('#searchButton').click((e)=>{
+  e.preventDefault()
+  let inputVal = $("#searchCountry").val();
+    $.get(`https://corona.lmao.ninja/v2/countries/${inputVal}?yesterday=true&strict=true`,
+        (details) => {
+          $('#detailCard').remove();
+          let countryCard = createCardforCountry(details);
+          const cardType = $(`<div class="col-md-6 col-sm-12 mb-4"></div>`);
+          cardType.append(countryCard)
+          $("#container2").append(cardType);
+          $("#container2").show();
+          $('#container').hide()
+    }) 
+  }
+)
+
+
+
+//Show the loader/spinner whenever an AJAX request starts 
+$(document).ajaxStart(function(){
+  $('#loader').show();
+  $('.container').hide()
+//hider spinner whenever all AJAX requests have ended. 
+}).ajaxStop(function(){
+  $('#loader').hide();
+  $('.container').show()
 });
