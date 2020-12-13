@@ -23,7 +23,7 @@ function createCard(element) {
   const continentheader = $(`<div class="card-header">${name}</div>`);
   const continentBody = $(`<div class="card-body"></div>`);
   const continentInfo = $(`<div class="card-info"></div>`);
-  const showMoreButton = $(`<button type="button" class="detailButton">Show More</button>`);
+  const showMoreButton = $(`<button type="button" class="detailButton btn btn-outline-info">Show More</button>`);
 
   //*! structure the dragdown list for country in side the function
   showMoreButton.click((event) => {
@@ -62,9 +62,9 @@ $("#countries").on("change", (event) => {
     (details) => {
       $('#detailCard').remove();
       let countryCard = createCardforCountry(details);
-      const cardType = $(`<div class="col-md-6 col-sm-12 mb-4"></div>`);
+      const cardType = $(`<div class="col-md-6 col-sm-12 mb-4" style="margin: auto;"></div>`);
       cardType.append(countryCard)
-      $("#country").append(cardType);
+      $("#container2").append(cardType);
     }
   );
 
@@ -104,7 +104,7 @@ $('#home').click((event) => {
   $("#container2").hide();
 })
 
-$(document).ajaxError(() => { alert('Something went wrong') });
+$(document).ajaxError(() => { alert('Something went wrong!') });
 
 $('#searchButton').click((e)=>{
   e.preventDefault()
