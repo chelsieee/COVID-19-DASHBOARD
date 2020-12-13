@@ -4,9 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css"></link>
-    <title>World COVID-19 Historical Data</title>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" id="home">Home</a>
+    <title class="container-sm">World COVID-19 Historical Data</title>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;" id="nav">
+        <a class="navbar-brand font-weight-light" id="home" >
+        <img src="https://i.pinimg.com/originals/64/2d/8f/642d8f291e9f6e92a8aa668976d258e0.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   
+            Home</a>
         <form class="form-inline">
           <input class="form-control mr-sm-2" id="searchCountry" type="search" placeholder="Country Name" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit">Search</button>
@@ -25,15 +27,13 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container container-sm">
         <div id="container" class="row"></div>
 
         <div id="container2" class="row">
-            <form id ="country">
-                <label for ="countries">Choose a country:</label>
-                <select name="countries" id="countries">
-                </select><br><br>
-                <!-- <input type ="submit" value="submit"> -->
+            <form id ="country" class ="col-md-6 col-sm-12 mb-4" style="margin:auto;">
+                <label for ="select"><strong>Choose a country:</strong></label>
+                <select class="form-control" id="countries"></select>
             </form>
         </div>
     </div>
