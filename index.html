@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css"></link>
+    <link rel="icon" type="image/png" href="/favicon-180.png"/>
     <title class="container-sm">World COVID-19 Historical Data</title>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;" id="nav">
         <a class="navbar-brand font-weight-light" id="home" >
@@ -13,14 +14,13 @@
           <input class="form-control mr-sm-2" id="searchCountry" type="search" placeholder="Country Name" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit">Search</button>
         </form>
-      </nav>
-</head>
+    </nav>
 </head>
 <body>
-    <h1>
+    <h2 class="text-center">
         World COVID-19
-        <small class="text-muted">Historical Data</small>
-    </h1>
+        <small class="text-muted" >Historical Data</small>
+    </h2>
     <div id="loader">
             <div class="spinner-border text-info" style="width: 5rem; height: 5rem;" role="status">
               <span class="sr-only">Loading...</span>
