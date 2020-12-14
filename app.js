@@ -61,15 +61,47 @@ $("#countries").on("change", (event) => {
     `https://corona.lmao.ninja/v2/countries/${countryData}?yesterday=true&strict=true`,
     (details) => {
       $('#detailCard').remove();
+      $('#chart').remove();
+
       let countryCard = createCardforCountry(details);
       const cardType = $(`<div class="col-md-6 col-sm-12 mb-4" style="margin: auto;"></div>`);
       cardType.append(countryCard)
       $("#container2").append(cardType);
+
+      const chart = $(`<canvas id="chart"></canvas>`);
+      $("#chart-container").append(chart);
+
+      new Chart(chart, {
+        type: 'bar',
+        data: {
+            labels: ['NewCases', 'TotalCases', 'TodayDeaths', 'TotalDeaths', 'TodayRecovered', 'TotalRecovered'],
+            datasets: [{
+                label: `${details.country} Covid-19 Data`,
+                data: [details.todayCases, details.cases, details.todayDeaths, details.deaths, details.todayRecovered, details.recovered],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        });
+        }
+      );
     }
   );
-
-    
-});
 
 function createCardforCountry(element) {
   const name = element.country;
@@ -118,6 +150,41 @@ $('#searchButton').click((e)=>{
           $("#container2").append(cardType);
           $("#container2").show();
           $('#container').hide()
+
+      $('#chart').remove();
+      const chart = $(`<canvas id="chart"></canvas>`);
+      $("#chart-container").append(chart);
+          new Chart(chart, {
+            type: 'bar',
+            data: {
+                labels: ['NewCases', 'TotalCases', 'TodayDeaths', 'TotalDeaths', 'TodayRecovered', 'TotalRecovered'],
+                datasets: [{
+                    label: `${details.country} Covid-19 Data`,
+                    data: [details.todayCases, details.cases, details.todayDeaths, details.deaths, details.todayRecovered, details.recovered],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            });
+            
+
+
+
     }) 
   }
 )
@@ -132,4 +199,6 @@ $(document).ajaxStart(function(){
 }).ajaxStop(function(){
   $('#loader').hide();
   $('.container').show()
+  
 });
+
