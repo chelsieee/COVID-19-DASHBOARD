@@ -113,7 +113,7 @@ $('#searchButton').click((e)=>{
         (details) => {
           $('#detailCard').remove();
           let countryCard = createCardforCountry(details);
-          const cardType = $(`<div class="col-md-6 col-sm-12 mb-4"></div>`);
+          const cardType = $(`<div class="col-md-6 col-sm-12 mb-4" style="margin: auto;"></div>`);
           cardType.append(countryCard)
           $("#container2").append(cardType);
           $("#container2").show();

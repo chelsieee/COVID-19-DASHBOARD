@@ -66,3 +66,10 @@
 #home {
     cursor: pointer; 
 }
+
+body{
+    background-image: url("https://thumbs.dreamstime.com/b/stop-coronavirus-graphic-high-resolution-image-to-spread-virus-spreading-174939573.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+   }
