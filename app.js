@@ -97,7 +97,7 @@ $("#countries").on("change", (event) => {
           }]
         },
         options: {
-          responsive: true, 
+          responsive: true,
           maintainAspectRatio: false
         }
       });
@@ -182,13 +182,13 @@ $('#searchButton').click((e) => {
           }]
         },
         options: {
-          responsive: true, 
+          responsive: true,
           maintainAspectRatio: false
         }
       }
       );
     })
-  }
+}
 )
 
 //Show the loader/spinner whenever an AJAX request starts 
@@ -196,7 +196,7 @@ $(document).ajaxStart(function () {
   $('#loader').show();
   $('.container').hide()
 })
-  //hider spinner whenever all AJAX requests have ended. 
+//hider spinner whenever all AJAX requests have ended. 
 $(document).ajaxStop(function () {
   $('#loader').hide();
   $('.container').show()
