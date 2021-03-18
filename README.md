@@ -15,7 +15,7 @@
 This API provides a big range of detailed information about coronavirus. From COVID-19 global data overviews to city/region-specific mobility data, it provides brief insights into what the outbreak looks like in different regions.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](/image.js/countryData.png)
 
 ## Technologies
 * jquery-3.5.1
