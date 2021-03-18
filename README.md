@@ -33,7 +33,7 @@ alternatively simply visit the landing page on https://chelsieee.github.io/
 
 
 ## Features
-List of features ready and TODOs for future development
+List of features:
 * Using 2 API (recommended by Postman) to fetch COVID-19 historical data:
 -1 API for all continent
 -1 API for all countries
