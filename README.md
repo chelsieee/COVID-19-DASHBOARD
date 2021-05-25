@@ -3,7 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Screenshots](#screenshots)
+* [Demo](#demo)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
@@ -16,10 +16,13 @@
 This API provides a big range of detailed information about coronavirus. From COVID-19 global data overviews to city/region-specific mobility data, it provides brief insights into what the outbreak looks like in different regions.
 Site published at: https://chelsieee.github.io/
 
-## Screenshots
+## Demo
+### Live Demo
+https://user-images.githubusercontent.com/75514149/119495021-4a602300-bda5-11eb-9c53-cbc1de480323.mov
+
+### Website screenshots
 ![Example screenshot](/image.js/landingPage.png)
 ![Example screenshot](/image.js/countryData.png)
-
 
 ## Technologies
 * jquery-3.5.1
@@ -32,7 +35,6 @@ Site published at: https://chelsieee.github.io/
 3. right-click `index.html` file and run with live server or open with chrome/safari 
 ## Quickstart(recommend)
 alternatively simply visit the landing page on https://chelsieee.github.io/
-
 
 ## Features
 List of features:
@@ -47,7 +49,7 @@ To-do list:
 * construct basic element with class and use a constructor function to create a basic class and inherit class in order to avoid duplication of codes
 
 ## Status
-Project is: _in progress_
+Project is: _completed_
 
 ## Inspiration
 Project inspired by the fact that many people have to search and went on different government pages to have access to COVID-19 data. In this project, I try to combine all continent/city data into a simple website with the search function to visualise the key data in a more user-friendly way
